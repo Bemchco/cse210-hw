@@ -1,6 +1,9 @@
 using System;
 using System.Runtime.InteropServices;
 
+// Scripture Memorizer
+// This program is a simple scripture memorization tool that allows users to hide random words from a given scripture text.
+// Users can repeatedly hide words and even though they are random words, the same words will not be hidden and thus every time they hit enter a new set of words will hide until all words are hidden or they choose to exit.
 class Program
 {
     static void Main(string[] args)
