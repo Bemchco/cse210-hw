@@ -15,10 +15,23 @@ public class Scripture
     public void HideRandomWords(int _numberToHide)
     {
         Random _random = new Random();
-        for (int i = 0; i < _numberToHide; i++)
+        int _hiddenCount = 0;
+        List<int> availableIndices = new List<int>();
+        for (int i = 0; i < _words.Count; i++)
         {
-            int _index = _random.Next(_words.Count);
-            _words[_index] = new Word("_");
+            if (!_words[i].IsHidden())
+            {
+                availableIndices.Add(i);
+            }
+        }
+
+        while (_hiddenCount < _numberToHide && availableIndices.Count > 0)
+        {
+            int _index = _random.Next(availableIndices.Count);
+            int _selectedIndex = availableIndices[_index];
+            _words[_selectedIndex].Hide();
+            availableIndices.RemoveAt(_index);
+            _hiddenCount++;
         }
     }
     public string GetFullText()
