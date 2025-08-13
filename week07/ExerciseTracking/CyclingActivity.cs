@@ -1,0 +1,14 @@
+public class CyclingActivity : Activity
+{
+    private double _speedKph;
+
+    public CyclingActivity(DateTime date, int lengthMinutes, double speedKph)
+        : base(date, lengthMinutes)
+    {
+        _speedKph = speedKph;
+    }
+
+    public override double GetSpeed() => _speedKph;
+    public override double GetDistance() => (_speedKph * LengthMinutes) / 60;
+    public override double GetPace() => 60 / _speedKph;
+}
